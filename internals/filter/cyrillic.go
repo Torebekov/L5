@@ -25,7 +25,7 @@ func SomeFunc(v interface{}) {
 			if f.Elem().Kind() == reflect.String {
 				f.Elem().SetString(removeCyrillic(f.Elem().String()))
 			} else if f.Elem().Kind() == reflect.Struct {
-				SomeFunc(f.Elem().Addr().Interface())
+				SomeFunc(f.Interface())
 			}
 		case reflect.Struct:
 			SomeFunc(f.Addr().Interface())
